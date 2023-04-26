@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 image_1 = cv2.imread('pokemon/9.png', 0)
-cvrt_img_1 = cv2.cvtColor(img_1, cv2.COLOR_BGR2RGB)
+cvrt_img_1 = cv2.cvtColor(image_1, cv2.COLOR_BGR2RGB)
 
 hsv = cv2.cvtColor(cvrt_img_1, cv2.COLOR_RGB2HSV)
 #define blue color range
@@ -115,4 +115,3 @@ def showMask(image_1):
                                 
     plt.figure(num=None, figsize=(8, 6), dpi=80)
     plt.imshow(sky_filtered);
-
