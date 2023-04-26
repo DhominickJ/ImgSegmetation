@@ -121,6 +121,11 @@ def filterColorRed(image_1):
 #                                 cvrt_img_1[:,:,1]*mask_1,
 #                                 cvrt_img_1[:,:,2]*mask_1))
                                 
+<<<<<<< HEAD
 #     plt.figure(num=None, figsize=(8, 6), dpi=80)
 #     plt.imshow(sky_filtered);
 
+=======
+    plt.figure(num=None, figsize=(8, 6), dpi=80)
+    plt.imshow(sky_filtered);
+>>>>>>> 366ec9790274d9fc89abd777da261e7c63f4c461
