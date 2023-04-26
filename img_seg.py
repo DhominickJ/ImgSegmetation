@@ -1,4 +1,3 @@
-
 import cv2 
 import matplotlib.pyplot as plt 
 import numpy as np 
@@ -29,20 +28,19 @@ def _plt( img, cmap, title, fsize, p):
 #     # image_1 = cv2.imread('pokemon/9.png', 0)       
 # #Method I 
 
-# def ForLoopIteration(image):
-#     # fig = plt.figure(figsize=(15,5))
-#     s1 = image > 150 
-#     s2 = image > 125 
-#     fig, ax = plt.subplots(1,3,figsize=(15,5)) 
-#     imgs_list = [ image, s1, s2 ]
-#     for i in range( len( imgs_list)): 
-#         ax[i].imshow(imgs_list[i], cmap = 'gray') 
-#         aa = ax[0].imshow(imgs_list[0], cmap = 'gray') 
-#         if ax[i] == ax[0]: 
-#             fig.colorbar(aa, ax=ax[0]) 
-#     # plt.show()
-#     # plt.imshow(image, cmap='gray') 
-#     st.pyplot()
+def ForLoopIteration(image_1):
+    s1 = image_1 > 150 
+    s2 = image_1 > 125 
+
+
+    fig, ax = plt.subplots(1,3,figsize=(15,5)) 
+    imgs_list = [ image_1, s1, s2 ]
+    for i in range( len( imgs_list)): 
+        ax[i].imshow(imgs_list[i], cmap = 'gray') 
+        aa = ax[0].imshow(imgs_list[0], cmap = 'gray') 
+        if ax[i] == ax[0]: 
+            fig.colorbar(aa, ax=ax[0]) 
+    st.pyplot(plt.gcf())
 
 #Method II
 def ThreshtoBinaryImg(image_1):
@@ -50,6 +48,7 @@ def ThreshtoBinaryImg(image_1):
     # binaryImg = cv2.bitwise_not(binaryImg)
     print("Thresh:", thresh)
     _plt(binaryImg, 'gray', '', '', 1)
+    
 
 # Method III
 def WithOtsu(image_1):
@@ -120,20 +119,20 @@ def main():
             st.error('Please upload an image')
 
         function = st.selectbox('Select a Function: ', ('Image Segmentation', 'Threshold to Binary Image', 'With Otsu', 'Watershed Segmentation', 'Seperation', 'Marker Labelling'))
-        if function == 'Image Segmentation':
-            st.title("Currently Debugging!")
-            # image = cv2.imread('pokemon/10.png')
-            # Img_Segmentation(image)
-        elif function == 'Threshold to Binary Image':
-            ThreshtoBinaryImg(image)
-        elif function == 'With Otsu':
-            WithOtsu(image)
-        elif function == 'Watershed Segmentation':
-            WatershedSegmentation(image)
-        elif function == 'Seperation':
-            Seperation(thresh)
-        elif function == 'Marker Labelling':
-            MarkerLabelling(image, dist1, dist2)
+    if function == 'Image Segmentation':
+        # st.title("Currently Debugging!")
+        image = cv2.imread('pokemon/10.png')
+        ForLoopIteration(image)
+    # elif function == 'Threshold to Binary Image':
+    #     ThreshtoBinaryImg(image)
+    # elif function == 'With Otsu':
+    #     WithOtsu(image)
+    # elif function == 'Watershed Segmentation':
+    #     WatershedSegmentation(image)
+    # elif function == 'Seperation':
+    #     Seperation(thresh)
+    # elif function == 'Marker Labelling':
+    #     MarkerLabelling(image, dist1, dist2)
         
 if __name__ == '__main__':
     main()
