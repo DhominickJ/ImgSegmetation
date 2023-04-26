@@ -11,6 +11,14 @@ light_blue = np.array([110,50,50])
 dark_blue = np.array([130,255,255])
 
 
+def _plt( img, cmap, title, fsize, p): 
+    if p == 0: 
+        plt.title(title, fontsize=fsize) 
+        plt.imshow(img, cmap=cmap) 
+    else: 
+        plt.imshow(img, cmap=cmap) 
+
+
 def plt( res_img, cmap, title, fsize, p):
 
     if p == 0:
@@ -32,7 +40,7 @@ def filterColorRed(image_1):
     output = cv2.bitwise_and (cvrt_img_1, cvrt_img_1, mask= mask)
     plt.imshow(np.hstack ((cvrt_img_1, output)))
     filter_color_red =(cvrt_img_1[:,:,0] > 150)
-    _plt filter_color_red, 'gray', '', '', 2
+    _plt(filter_color_red, 'gray', '', '', 2)
     
     mask_img = cvrt_img_1.copy()
     mask_img[:,:, 0] = mask_img[:, :, 0]*filter_color_red 
